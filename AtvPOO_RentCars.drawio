@@ -7,7 +7,7 @@
         <mxCell id="pWSUM_7YT7kqcM3gLriz-9" value="application" style="shape=folder;fontStyle=1;spacingTop=19;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;strokeColor=default;align=left;verticalAlign=top;spacingLeft=9;" parent="1" vertex="1">
           <mxGeometry x="10" y="16" width="206" height="154" as="geometry" />
         </mxCell>
-        <mxCell id="pWSUM_7YT7kqcM3gLriz-11" value="Main" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1" collapsed="1">
+        <mxCell id="pWSUM_7YT7kqcM3gLriz-11" value="application.Main" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1" collapsed="1">
           <mxGeometry x="26" y="89" width="61" height="26" as="geometry">
             <mxRectangle x="69" y="133" width="160" height="34" as="alternateBounds" />
           </mxGeometry>
