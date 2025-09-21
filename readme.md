@@ -10,8 +10,16 @@ Sistema administrativo para locação de veículos. Criado em Java, o sistema pe
 ## Tecnologia
 - `Java 17+` 
 
-## Instalação e Execução
+## Estrutura de Pastas
 
+```
+
+internal - regra de negócio e entidades (não devem conter dependências externas)
+
+external - dependências externas (bando, adapters, http)
+```
+
+## Instalação e Execução
 
 ```bash
 # Clonando repositório
