@@ -13,11 +13,14 @@ Sistema administrativo para locação de veículos. Criado em Java, o sistema pe
 ## Estrutura de Pastas
 
 ```
-
 internal - regra de negócio e entidades (não devem conter dependências externas)
 
 external - dependências externas (bando, adapters, http)
 ```
+
+## Modelagem 
+
+<img width="619" height="498" alt="image" src="https://github.com/user-attachments/assets/c86f8a30-c904-45db-b17e-fd23b72e8c9f" />
 
 ## Instalação e Execução
 
