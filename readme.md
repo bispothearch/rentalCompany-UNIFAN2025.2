@@ -1,7 +1,6 @@
 # Rental Company - Unifan 2025.2
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 ## Descrição 
 
@@ -27,14 +26,6 @@ external - dependências externas (bando, adapters, http)
 ```bash
 # Clonando repositório
 git clone https://github.com/bispothearch/rentalCompany-UNIFAN2025.2.git
-```
-```bash
-# Adentrar ao diretório
-cd rentalCompany-UNIFAN2025.2
-
-# Executar a aplicação
-javac Hello.java     
-java Hello            
 ```
 
 ## Licença 
