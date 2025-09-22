@@ -1,13 +1,13 @@
-package internal.usecase;
+package internal.utils;
 
 import internal.ports.iDataBase;
 
 // fluxo da regra de negócio
 public class RentalUseCase {
-    private iDataBase Repo;
+    private iDataBase repo;
 
     public RentalUseCase(iDataBase repo) {
-        this.Repo = repo;
+        this.repo = repo;
     }
 
     public void SignUpClient(){
