@@ -1,7 +1,10 @@
 package internal.entities;
 
+import internal.enums.VehicleType;
+
 public class Motorcycle extends Vehicle{
     private int engineCapacity;
+    private VehicleType vehicleType = VehicleType.MOTORCYCLE;
 
     public Motorcycle(int ID, String Brand, String Model, String LicencePlate, int Km) {
         super(ID, Brand, Model, LicencePlate, Km);

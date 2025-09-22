@@ -1,28 +1,37 @@
 package  internal.entities;
 
+import internal.enums.PayMethod;
 import internal.enums.ReserveStatus;
+import internal.services.iPaymentService;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Reserve {
+    private static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     private final int ID;
-    private Client Client;
-    private Vehicle Vehicle;
     private Double Value;
     private final PayMethod PayMethod = null;
     private final LocalDate BeginDate;
-    private LocalDate FinalDate;
+    private LocalDate EstimatedFinalDate;
+    private LocalDate ActualReturnDate;
     private ReserveStatus Status;
 
-    public Reserve(int ID, Client client, Vehicle vehicle, Double value, LocalDate beginDate, LocalDate finalDate) {
+    private Client Client;
+    private Vehicle Vehicle;
+
+    public Reserve(int ID, Client client, Vehicle vehicle, Double value, LocalDate beginDate, LocalDate estimatedFinalDate) {
         this.ID = ID;
         this.Client = client;
         this.Vehicle = vehicle;
         this.Value = value;
         this.BeginDate = beginDate;
-        this.FinalDate = finalDate;
+        this.EstimatedFinalDate = estimatedFinalDate;
         this.Status = ReserveStatus.PENDING;
     }
+
+    private iPaymentService reservePayMethod;
 
     public int getID() {
         return ID;
@@ -60,12 +69,20 @@ public class Reserve {
         return BeginDate;
     }
 
-    public LocalDate getFinalDate() {
-        return FinalDate;
+    public LocalDate getEstimatedFinalDate() {
+        return EstimatedFinalDate;
     }
 
-    public void setFinalDate(LocalDate finalDate) {
-        FinalDate = finalDate;
+    public void setEstimatedFinalDate(LocalDate estimatedFinalDate) {
+        EstimatedFinalDate = estimatedFinalDate;
+    }
+
+    public LocalDate getActualReturnDate() {
+        return ActualReturnDate;
+    }
+
+    public void setActualReturnDate(LocalDate actualReturnDate) {
+        ActualReturnDate = actualReturnDate;
     }
 
     public ReserveStatus getStatus() {

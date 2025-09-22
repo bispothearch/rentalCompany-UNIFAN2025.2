@@ -2,7 +2,7 @@ package internal.services;
 
 import internal.entities.Reserve;
 
-public interface PaymentService {
+public interface iPaymentService {
 
     void processPayment(Reserve reserve);
 

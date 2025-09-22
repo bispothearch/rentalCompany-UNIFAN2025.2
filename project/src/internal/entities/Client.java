@@ -1,5 +1,8 @@
 package internal.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Client {
    private final int ID;
    private String Name;
@@ -18,6 +21,8 @@ public class Client {
       Tel = tel;
       Email = email;
    }
+
+   private List<Reserve> clientReserveList = new ArrayList<>();
 
    public int getID() {
       return ID;
@@ -53,5 +58,9 @@ public class Client {
 
    public void setEmail(String email) {
       Email = email;
+   }
+
+   public List<Reserve> getClientReserveList() {
+      return clientReserveList;
    }
 }
