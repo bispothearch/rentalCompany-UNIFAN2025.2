@@ -1,4 +1,4 @@
-package internal.entitys;
+package internal.entities;
 
 public class Client {
    public final int ID;

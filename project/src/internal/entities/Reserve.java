@@ -1,4 +1,4 @@
-package  internal.entitys;
+package  internal.entities;
 
 import java.time.LocalDate;
 
@@ -45,5 +45,4 @@ public class Reserve {
     public void SwitchStatus(ReserveStatus newStatus){
         this.Status = newStatus;
     }
-
 }
