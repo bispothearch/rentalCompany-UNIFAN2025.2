@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
 
 public class ServiceReserve {
 
-    public double CalcCostReserve(Reserve reserve){
+    public double calcCostReserve(Reserve reserve){
         VehicleGrade grade = reserve.getVehicle().getVehicleGrade();
         int lateDays = (int) ChronoUnit.DAYS.between(reserve.getEstimatedFinalDate(),reserve.getActualReturnDate());
         int rentDays = (int) ChronoUnit.DAYS.between(reserve.getBeginDate(),reserve.getEstimatedFinalDate());
@@ -18,5 +18,6 @@ public class ServiceReserve {
         }
         return value;
     }
+
 
 }

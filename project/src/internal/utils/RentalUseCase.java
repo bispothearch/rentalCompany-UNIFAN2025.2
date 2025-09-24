@@ -1,5 +1,6 @@
 package internal.utils;
 
+import internal.entities.Client;
 import internal.ports.iDataBase;
 
 // fluxo da regra de negócio

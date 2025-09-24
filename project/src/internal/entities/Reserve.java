@@ -8,11 +8,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Reserve {
-    private static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private final int ID;
     private Double Value;
-    private final PayMethod PayMethod = null;
+    private final PayMethod PayMethod;
     private final LocalDate BeginDate;
     private LocalDate EstimatedFinalDate;
     private LocalDate ActualReturnDate;
@@ -21,9 +21,10 @@ public class Reserve {
     private Client Client;
     private Vehicle Vehicle;
 
-    public Reserve(int ID, Client client, Vehicle vehicle, Double value, LocalDate beginDate, LocalDate estimatedFinalDate) {
+    public Reserve(int ID, Client client, PayMethod PayMethod,Vehicle vehicle, Double value, LocalDate beginDate, LocalDate estimatedFinalDate) {
         this.ID = ID;
         this.Client = client;
+        this.PayMethod = PayMethod;
         this.Vehicle = vehicle;
         this.Value = value;
         this.BeginDate = beginDate;
@@ -93,12 +94,7 @@ public class Reserve {
         Status = status;
     }
 
-    public double CalcTotalValue() {
-        return 2.000;
-        // retorno temporário
-    }
-
-    public void SwitchStatus(ReserveStatus newStatus){
+    public void switchStatus(ReserveStatus newStatus){
         this.Status = newStatus;
     }
 
