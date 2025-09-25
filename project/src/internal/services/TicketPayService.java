@@ -3,7 +3,7 @@ package internal.services;
 import internal.entities.Reserve;
 import internal.enums.ReserveStatus;
 
-public class TicketPayService implements iPaymentService{
+public class TicketPayService implements IPaymentService {
 
     private ServiceReserve valueReserve;
     private static final double FEE_PERCENTAGE = 0.1;

@@ -3,7 +3,7 @@ package internal.services;
 import internal.entities.Reserve;
 import internal.enums.ReserveStatus;
 
-public class PixPayService implements iPaymentService{
+public class PixPayService implements IPaymentService {
 
     private ServiceReserve valueReserve;
 

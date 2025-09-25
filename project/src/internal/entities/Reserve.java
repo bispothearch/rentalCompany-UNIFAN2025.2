@@ -2,7 +2,7 @@ package  internal.entities;
 
 import internal.enums.PayMethod;
 import internal.enums.ReserveStatus;
-import internal.services.iPaymentService;
+import internal.services.IPaymentService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -32,7 +32,7 @@ public class Reserve {
         this.Status = ReserveStatus.PENDING;
     }
 
-    private iPaymentService reservePayMethod;
+    private IPaymentService reservePayMethod;
 
     public int getID() {
         return ID;
