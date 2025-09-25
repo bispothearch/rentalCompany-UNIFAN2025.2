@@ -11,7 +11,7 @@ public abstract class Vehicle {
    private int Km;
    private VehicleStatus Status;
 
-   private VehicleGrade vehicleGrade;
+   private final VehicleGrade vehicleGrade;
 
    public Vehicle(int ID, String Brand, String Model, String LicencePlate, int Km, VehicleGrade vehicleGrade) {
       this.ID = ID;
@@ -57,9 +57,5 @@ public abstract class Vehicle {
 
    public VehicleGrade getVehicleGrade() {
       return vehicleGrade;
-   }
-
-   public void setVehicleGrade(VehicleGrade vehicleGrade) {
-      this.vehicleGrade = vehicleGrade;
    }
 }
