@@ -23,8 +23,8 @@ public abstract class Vehicle {
       this.vehicleGrade = vehicleGrade;
    }
 
-   public void SwitchVehicleStatus(VehicleStatus newStatus){
-       this.Status = newStatus;
+   public void switchVehicleStatus(VehicleStatus newStatus){
+              this.status = newStatus;
    }
 
    public int getID() {
