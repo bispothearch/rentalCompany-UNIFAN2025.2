@@ -17,6 +17,10 @@ public class Motorcycle extends Vehicle {
         this.engineCapacity = engineCapacity;
     }
 
+    public VehicleType getVehicleType() {
+        return this.vehicleType;
+    }
+
     public int getEngineCapacity() {
         return engineCapacity;
     }

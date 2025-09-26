@@ -6,8 +6,7 @@ import internal.enums.VehicleGrade;
 import java.time.temporal.ChronoUnit;
 
 public class ServiceReserve {
-
-    public double calcCostReserve(Reserve reserve) {
+    public static double calcCostReserve(Reserve reserve) {
         VehicleGrade grade = reserve.getVehicle().getVehicleGrade();
         int lateDays = (int) ChronoUnit.DAYS.between(reserve.getEstimatedFinalDate(), reserve.getActualReturnDate());
         int rentDays = (int) ChronoUnit.DAYS.between(reserve.getBeginDate(), reserve.getEstimatedFinalDate());
@@ -17,5 +16,4 @@ public class ServiceReserve {
         }
         return value;
     }
-
 }

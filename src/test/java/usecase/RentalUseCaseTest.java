@@ -1,7 +1,7 @@
 package usecase;
 
 import internal.entities.*;
-import internal.services.CreditCardPayService;
+import internal.enums.PaymentService;
 import internal.adapters.InMemoryDataBase;
 import internal.usecase.RentalUseCase;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ class RentalUseCaseTest {
         var newReserve = new Reserve(0, client, null, null, null, null, null);
         useCase.CreateReserve(newReserve);
         var ObjReserver = useCase.GetReserveById(0);
-        // var err = useCase.ManageRental(ObjReserver, );
+        var err = useCase.ManageRental(ObjReserver, PaymentService.Credit);
 
         assertEquals(1, company.clientList.size());
         assertEquals("João", company.clientList.get(0).getName());

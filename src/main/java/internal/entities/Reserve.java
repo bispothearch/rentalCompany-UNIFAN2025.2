@@ -16,7 +16,6 @@ public class Reserve {
     private ReserveStatus Status;
     private Client Client;
     private Vehicle Vehicle;
-    private IPaymentService reservePayMethod;
 
     public Reserve(int ID, Client client, PayMethod PayMethod, Vehicle vehicle, Double value, LocalDate beginDate,
             LocalDate estimatedFinalDate) {

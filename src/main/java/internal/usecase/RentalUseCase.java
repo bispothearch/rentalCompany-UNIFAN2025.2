@@ -5,9 +5,9 @@ import java.util.List;
 import internal.entities.Client;
 import internal.entities.Reserve;
 import internal.entities.Vehicle;
+import internal.enums.PaymentService;
 import internal.enums.ReserveStatus;
 import internal.ports.IDataBase;
-import internal.services.IPaymentService;
 
 public class RentalUseCase {
     private final IDataBase repo;
@@ -32,7 +32,7 @@ public class RentalUseCase {
     }
 
     // Gerenciamente de Aluguel e Pagamento
-    public boolean ManageRental(Reserve reserve, IPaymentService paymentService) {
+    public boolean ManageRental(Reserve reserve, PaymentService paymentService) {
         if (reserve.getStatus() == ReserveStatus.FINISHED) {
             return false;
         }
@@ -42,7 +42,7 @@ public class RentalUseCase {
         return true;
     }
 
-    public Reserve GetReserveById(int id_reserve){
+    public Reserve GetReserveById(int id_reserve) {
         return this.repo.GetReserveById(id_reserve);
     }
 
