@@ -10,21 +10,21 @@ public class Reserve {
     private final PayMethod PayMethod;
     private final LocalDate BeginDate;
 
-    private Double Value;
+    private Double Value = 0.0;
     private LocalDate EstimatedFinalDate;
     private LocalDate ActualReturnDate;
     private ReserveStatus Status;
     private int fk_client;
     private int fk_vehicle;
 
-    public Reserve(int client, int vehicle, PayMethod PayMethod, Double value, LocalDate beginDate,
+    public Reserve(int client, int vehicle, PayMethod PayMethod, Double entryValue, LocalDate beginDate,
                    LocalDate estimatedFinalDate) {
         this.PayMethod = PayMethod;
         this.BeginDate = beginDate;
 
         this.fk_client = client;
         this.fk_vehicle = vehicle;
-        this.Value = value;
+        this.Value += entryValue;
         this.EstimatedFinalDate = estimatedFinalDate;
         this.Status = ReserveStatus.PENDING;
     }
@@ -58,8 +58,8 @@ public class Reserve {
         return Value;
     }
 
-    public void setValue(double value) {
-        Value = value;
+    public void incrementValue(double newValue  ) {
+        Value += newValue;
     }
 
     public LocalDate getEstimatedFinalDate() {

@@ -68,7 +68,7 @@ public class RentalUseCase {
                 objReserve.getBeginDate()
         );
 
-        objReserve.setValue(valueFinal);
+        objReserve.incrementValue(valueFinal);
         objReserve.switchStatus(ReserveStatus.CONFIRMED);
 
         repo.UpdateReserve(objReserve);
