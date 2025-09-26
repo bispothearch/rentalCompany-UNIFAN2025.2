@@ -28,5 +28,6 @@ public interface IDataBase {
 
     Reserve GetReserveById(int id);
 
-    void UpdateReserve(Reserve Reserve);
+    // -- Update [pagamento]
+    void UpdateReserve(Reserve reserve);
 }

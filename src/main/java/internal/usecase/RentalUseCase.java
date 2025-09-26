@@ -6,6 +6,7 @@ import internal.entities.Client;
 import internal.entities.Reserve;
 import internal.entities.Vehicle;
 import internal.enums.PaymentService;
+import internal.enums.ReserveStatus;
 import internal.ports.IDataBase;
 
 public class RentalUseCase {
@@ -55,10 +56,22 @@ public class RentalUseCase {
     }
 
 
+    // -- Update
     // Gerenciamente de Aluguel e Pagamento
-    public boolean ManageRental(Reserve reserve, PaymentService paymentService) {
-        paymentService.processPayment(reserve);
-        repo.UpdateReserve(reserve);
+    public boolean ManageRental(int id_reserve, PaymentService paymentService) {
+        var objReserve = repo.GetReserveById(id_reserve);
+        var objVehicle = repo.GetVehicleById(objReserve.getVehicleId());
+        var valueFinal = paymentService.processPayment(
+                objVehicle.getVehicleGrade(),
+                objReserve.getEstimatedFinalDate(),
+                objReserve.getActualReturnDate(),
+                objReserve.getBeginDate()
+        );
+
+        objReserve.setValue(valueFinal);
+        objReserve.switchStatus(ReserveStatus.CONFIRMED);
+
+        repo.UpdateReserve(objReserve);
         return true;
     }
 }

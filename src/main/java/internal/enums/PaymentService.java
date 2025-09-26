@@ -3,6 +3,8 @@ package internal.enums;
 import internal.services.ServiceReserve;
 import internal.entities.Reserve;
 
+import java.time.LocalDate;
+
 public enum PaymentService {
    Debit(0.15),
    Credit(0.25),
@@ -16,9 +18,8 @@ public enum PaymentService {
       this.FEE_PERCENTAGE = FEE_PERCENTAGE;
    }
 
-   public void processPayment(Reserve reserve) {
-      reserve.switchStatus(ReserveStatus.CONFIRMED);
-      reserve.setValue(
-            (ServiceReserve.calcCostReserve(reserve) * this.FEE_PERCENTAGE) + ServiceReserve.calcCostReserve(reserve));
+   public double processPayment(VehicleGrade grade, LocalDate EstimatedFinalDate, LocalDate ActualReturnDate, LocalDate BeginDate) {
+      var CostFinal = ServiceReserve.calcCostReserve_X(grade,EstimatedFinalDate, ActualReturnDate, BeginDate);
+      return (CostFinal * this.FEE_PERCENTAGE) + CostFinal;
    }
 }

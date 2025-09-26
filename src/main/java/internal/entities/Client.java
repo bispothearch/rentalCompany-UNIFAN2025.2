@@ -23,10 +23,6 @@ public class Client {
       this.Email = email;
    }
 
-   private List<Reserve> clientReserveList = new ArrayList<>();
-
-   // --
-
    public int getID() {
       return this.ID;
    }
@@ -38,8 +34,6 @@ public class Client {
    public String getCNH() {
       return this.CNH;
    }
-
-   // --
 
    public String getName() {
       return this.Name;
@@ -63,9 +57,5 @@ public class Client {
 
    public void setEmail(String email) {
       this.Email = email;
-   }
-
-   public List<Reserve> getClientReserveList() {
-      return this.clientReserveList;
    }
 }

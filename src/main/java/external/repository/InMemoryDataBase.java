@@ -81,9 +81,9 @@ public class InMemoryDataBase implements IDataBase {
                 .orElse(null);
     }
 
-
+    // -- Update
     @Override
-    public void UpdateReserve(Reserve Reserve) {
-
+    public void UpdateReserve(Reserve reserve) {
+        rentalCompany.reserveList.set(reserve.getID(), reserve);
     }
 }

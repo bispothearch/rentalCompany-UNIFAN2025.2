@@ -22,23 +22,20 @@ class RentalUseCaseTest {
 
         // Fluxo
         var objClient = new Client("João", 30, "12345678900", "CNH123", "99999-9999", "joao@email.com");
-        useCase.RegisterClient(objClient);
+        var clientId = useCase.RegisterClient(objClient);
 
         var objVehicle = new Vehicle("Fiat", "Strada", "LK0I9-91", VehicleGrade.PICKUP, 0);
-        useCase.RegisterVehicle(objVehicle);
+        var vehicleId = useCase.RegisterVehicle(objVehicle);
 
-        var newReserve = new Reserve(objClient, objVehicle, PayMethod.PIX, 1000.00, LocalDate.now(), LocalDate.now().plusDays(8));
-        useCase.RegisterReserve(newReserve);
+        var newReserve = new Reserve(clientId, vehicleId, PayMethod.PIX, 1000.00, LocalDate.now(), LocalDate.now().plusDays(8));
+        var reserveId = useCase.RegisterReserve(newReserve);
 
-        var listOfClient = useCase.LisClient();
-        var listOfVehicle = useCase.ListVehicle();
-        var SelectedReserve = useCase.GetReserveById(0);
+        var SelectedReserve = useCase.GetReserveById(reserveId);
 
-        System.out.println("Obj: "+SelectedReserve);
+        System.out.println("Obj: " + SelectedReserve);
 
 
-        var ObjReserver = useCase.GetReserveById(1);
-//        var err = useCase.ManageRental(ObjReserver, PaymentService.Pix);
+        var err = useCase.ManageRental(reserveId, PaymentService.Pix);
 
 //        assertEquals(1, company.clientList.size());
 //        assertEquals("João", company.clientList.get(0).getName());

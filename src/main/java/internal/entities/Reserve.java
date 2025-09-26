@@ -14,20 +14,32 @@ public class Reserve {
     private LocalDate EstimatedFinalDate;
     private LocalDate ActualReturnDate;
     private ReserveStatus Status;
-    private Client Client;
-    private Vehicle Vehicle;
+    private int fk_client;
+    private int fk_vehicle;
 
-    public Reserve(Client client, Vehicle vehicle, PayMethod PayMethod, Double value, LocalDate beginDate,
-            LocalDate estimatedFinalDate) {
+    public Reserve(int client, int vehicle, PayMethod PayMethod, Double value, LocalDate beginDate,
+                   LocalDate estimatedFinalDate) {
         this.PayMethod = PayMethod;
         this.BeginDate = beginDate;
 
-        this.Client = client;
-        this.Vehicle = vehicle;
+        this.fk_client = client;
+        this.fk_vehicle = vehicle;
         this.Value = value;
         this.EstimatedFinalDate = estimatedFinalDate;
         this.Status = ReserveStatus.PENDING;
     }
+
+    // --
+
+    public int getClientId() {
+        return fk_client;
+    }
+
+    public int getVehicleId() {
+        return this.fk_vehicle;
+    }
+
+    // --
 
     public int getID() {
         return ID;
@@ -41,23 +53,6 @@ public class Reserve {
         return BeginDate;
     }
 
-    // --
-
-    public Client getClient() {
-        return Client;
-    }
-
-    public void setClient(Client client) {
-        Client = client;
-    }
-
-    public Vehicle getVehicle() {
-        return Vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        Vehicle = vehicle;
-    }
 
     public Double getValue() {
         return Value;
@@ -94,5 +89,4 @@ public class Reserve {
     public void switchStatus(ReserveStatus newStatus) {
         this.Status = newStatus;
     }
-
 }
