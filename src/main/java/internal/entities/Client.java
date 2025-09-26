@@ -13,8 +13,7 @@ public class Client {
    private String Tel;
    private String Email;
 
-   public Client(int ID, String name, int age, String CPF, String CNH, String tel, String email) {
-      this.ID = ID;
+   public Client(String name, int age, String CPF, String CNH, String tel, String email) {
       this.CPF = CPF;
       this.CNH = CNH;
 

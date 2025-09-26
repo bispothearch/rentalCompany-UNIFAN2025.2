@@ -7,13 +7,26 @@ import internal.entities.Reserve;
 import internal.entities.Vehicle;
 
 public interface IDataBase {
-    int SaveClient(Client newClient);
+    // -- Create
+    int RegisterClient(Client newClient);
 
-    List<Vehicle> GetListVehicle(String filter);
+    int RegisterClient(Vehicle newVehicle);
 
-    void RegisterReserve(Reserve newReserve);
+    int RegisterReserve(Reserve newReserve);
+
+    // -- Read all
+    List<Vehicle> GetListVehicle();
+
+    List<Client> GetListClient();
+
+    List<Reserve> GetListReserve();
+
+    // -- Read single Object
+    Client GetClientById(int id);
+
+    Vehicle GetVehicleById(int id);
+
+    Reserve GetReserveById(int id);
 
     void UpdateReserve(Reserve Reserve);
-
-    Reserve GetReserveById(int id_reserve);
 }

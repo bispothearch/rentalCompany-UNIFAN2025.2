@@ -17,9 +17,8 @@ public class Reserve {
     private Client Client;
     private Vehicle Vehicle;
 
-    public Reserve(int ID, Client client, PayMethod PayMethod, Vehicle vehicle, Double value, LocalDate beginDate,
+    public Reserve(Client client, Vehicle vehicle, PayMethod PayMethod, Double value, LocalDate beginDate,
             LocalDate estimatedFinalDate) {
-        this.ID = ID;
         this.PayMethod = PayMethod;
         this.BeginDate = beginDate;
 
@@ -64,7 +63,7 @@ public class Reserve {
         return Value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(double value) {
         Value = value;
     }
 

@@ -3,7 +3,7 @@ package internal.entities;
 import internal.enums.VehicleGrade;
 import internal.enums.VehicleStatus;
 
-public abstract class Vehicle {
+public class Vehicle {
    public int ID;
    private final String Brand;
    private final String Model;
@@ -13,8 +13,7 @@ public abstract class Vehicle {
    private int KM;
    private VehicleStatus Status;
 
-   public Vehicle(int ID, String Brand, String Model, String LicencePlate, VehicleGrade vehicleGrade, int KM) {
-      this.ID = ID;
+   public Vehicle(String Brand, String Model, String LicencePlate, VehicleGrade vehicleGrade, int KM) {
       this.Brand = Brand;
       this.Model = Model;
       this.LicencePlate = LicencePlate;

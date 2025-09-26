@@ -16,34 +16,50 @@ public class RentalUseCase {
         this.repo = repo;
     }
 
-    // Cadastro de Cliente
+    // -- Create
     public int RegisterClient(Client newClient) {
-        return repo.SaveClient(newClient);
+        return repo.RegisterClient(newClient);
     }
 
-    // Listagem de veículos com filtro
-    public List<Vehicle> ListVehicle(String filter) {
-        return repo.GetListVehicle(filter);
+    public int RegisterVehicle(Vehicle newVehicle) {
+        return this.repo.RegisterClient(newVehicle);
     }
 
-    // Criação de Reserva
-    public void CreateReserve(Reserve newReserve) {
-        repo.RegisterReserve(newReserve);
+    public int RegisterReserve(Reserve newReserve) {
+        return repo.RegisterReserve(newReserve);
     }
+
+    // -- Read all
+    public List<Client> LisClient() {
+        return repo.GetListClient();
+    }
+
+    public List<Vehicle> ListVehicle() {
+        return repo.GetListVehicle();
+    }
+
+    public List<Reserve> LisReserve() {
+        return repo.GetListReserve();
+    }
+
+    // -- Read single Object
+    public Client GetClientById(int id) {
+        return repo.GetClientById(id);
+    }
+
+    public Vehicle GetVehicleById(int id) {
+        return repo.GetVehicleById(id);
+    }
+
+    public Reserve GetReserveById(int id) {
+        return repo.GetReserveById(id);
+    }
+
 
     // Gerenciamente de Aluguel e Pagamento
     public boolean ManageRental(Reserve reserve, PaymentService paymentService) {
-        if (reserve.getStatus() == ReserveStatus.FINISHED) {
-            return false;
-        }
-
         paymentService.processPayment(reserve);
         repo.UpdateReserve(reserve);
         return true;
     }
-
-    public Reserve GetReserveById(int id_reserve) {
-        return this.repo.GetReserveById(id_reserve);
-    }
-
 }

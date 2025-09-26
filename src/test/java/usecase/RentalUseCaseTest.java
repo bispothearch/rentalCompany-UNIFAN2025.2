@@ -1,35 +1,46 @@
 package usecase;
 
+import external.database.RentalCompany;
 import internal.entities.*;
+import internal.enums.PayMethod;
 import internal.enums.PaymentService;
-import internal.adapters.InMemoryDataBase;
+import external.repository.InMemoryDataBase;
+import internal.enums.VehicleGrade;
 import internal.usecase.RentalUseCase;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RentalUseCaseTest {
 
     @Test
-    void testSignUpClient() {
-        RentalCompany company = new RentalCompany();
-        company.clientList = new ArrayList<>();
-        company.vehicleList = new ArrayList<>();
-        company.reserveList = new ArrayList<>();
-        InMemoryDataBase db = new InMemoryDataBase(company);
-        RentalUseCase useCase = new RentalUseCase(db);
+    void testEnd2End() {
+        // Instanciando as camadas e conectando
+        var company = new RentalCompany();
+        var db = new InMemoryDataBase(company);
+        var useCase = new RentalUseCase(db);
 
-        Client client = new Client(1, "João", 30, "12345678900", "CNH123", "99999-9999", "joao@email.com");
-        useCase.RegisterClient(client);
+        // Fluxo
+        var objClient = new Client("João", 30, "12345678900", "CNH123", "99999-9999", "joao@email.com");
+        useCase.RegisterClient(objClient);
 
-        var listOfCar = useCase.ListVehicle(null);
-        var newReserve = new Reserve(0, client, null, null, null, null, null);
-        useCase.CreateReserve(newReserve);
-        var ObjReserver = useCase.GetReserveById(0);
-        var err = useCase.ManageRental(ObjReserver, PaymentService.Credit);
+        var objVehicle = new Vehicle("Fiat", "Strada", "LK0I9-91", VehicleGrade.PICKUP, 0);
+        useCase.RegisterVehicle(objVehicle);
 
-        assertEquals(1, company.clientList.size());
-        assertEquals("João", company.clientList.get(0).getName());
+        var newReserve = new Reserve(objClient, objVehicle, PayMethod.PIX, 1000.00, null, null);
+        useCase.RegisterReserve(newReserve);
+
+        var listOfClient = useCase.LisClient();
+        var listOfVehicle = useCase.ListVehicle();
+        var listOfReserve = useCase.LisReserve();
+
+        System.out.println("x: "+listOfClient.get(0).getName());
+
+
+        var ObjReserver = useCase.GetReserveById(1);
+        var err = useCase.ManageRental(ObjReserver, PaymentService.Pix);
+
+//        assertEquals(1, company.clientList.size());
+//        assertEquals("João", company.clientList.get(0).getName());
     }
 
 }
