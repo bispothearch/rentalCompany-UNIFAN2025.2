@@ -17,22 +17,22 @@ public class RentalUseCase {
         this.repo = repo;
     }
 
-    public void SignUpClient(Client client){
-        repo.SaveClient(client);
+    public void signUpClient(Client client){
+        repo.saveClient(client);
     }
 
-    public void SignUpVehicle(){
+    public void signUpVehicle(Vehicle vehicle){
+        repo.saveVehicle(vehicle);
+    }
+    public void searchClient(){
 
     }
-    public void SearchClient(){
-
-    }
-    public void CreateReserve() {
+    public void createReserve() {
 
     }
 
     public List<Vehicle> getAvailableVehiclesByCategory(VehicleGrade category){
-        List<Vehicle> allVehicles = repo.GetAllVehicles();
+        List<Vehicle> allVehicles = repo.getAllVehicles();
         return allVehicles.stream().filter(vehicle -> vehicle.getStatus() == VehicleStatus.AVAILABLE && vehicle.getVehicleGrade() == category).collect(Collectors.toList());
     }
 }

@@ -7,9 +7,10 @@ import java.util.List;
 
 // usaremos essa interface pra criar operações concretas de banco de dados
 public interface IDataBase {
-   void SaveClient(Client client);
-   Client GetClient(int id);
-   void EditClient();
-   void DeleteClient();
-   List<Vehicle> GetAllVehicles();
+   void saveClient(Client client);
+   Client getClient(int id);
+   void editClient();
+   void deleteClient();
+   void saveVehicle(Vehicle vehicle);
+   List<Vehicle> getAllVehicles();
 }

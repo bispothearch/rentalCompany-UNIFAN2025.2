@@ -15,27 +15,32 @@ public class InMemoryDataBase implements IDataBase{
     }
 
     @Override
-    public void SaveClient(Client client) {
+    public void saveClient(Client client) {
         rentalCompany.clientList.add(client);
     }
 
     @Override
-    public Client GetClient(int id) {
+    public Client getClient(int id) {
         return rentalCompany.clientList.stream().filter(client -> client.getID() == id).findFirst().orElse(null);
     }
 
     @Override
-    public void EditClient() {
+    public void editClient() {
 
     }
 
     @Override
-    public void DeleteClient() {
+    public void deleteClient() {
 
     }
 
     @Override
-    public List<Vehicle> GetAllVehicles() {
+    public void saveVehicle(Vehicle vehicle) {
+        rentalCompany.vehicleList.add(vehicle);
+    }
+
+    @Override
+    public List<Vehicle> getAllVehicles() {
         return rentalCompany.vehicleList;
     }
 }
