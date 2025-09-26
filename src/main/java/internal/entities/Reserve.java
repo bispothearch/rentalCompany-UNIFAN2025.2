@@ -58,7 +58,7 @@ public class Reserve {
         return Value;
     }
 
-    public void incrementValue(double newValue  ) {
+    public void incrementValue(double newValue ) {
         Value += newValue;
     }
 

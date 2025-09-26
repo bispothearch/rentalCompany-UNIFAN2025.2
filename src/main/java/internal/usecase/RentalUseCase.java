@@ -1,5 +1,6 @@
 package internal.usecase;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import internal.entities.Client;
@@ -58,13 +59,14 @@ public class RentalUseCase {
 
     // -- Update
     // Gerenciamente de Aluguel e Pagamento
-    public boolean ManageRental(int id_reserve, PaymentService paymentService) {
+    public boolean ManageRental(int id_reserve, PaymentService paymentService,LocalDate CurrentDate) {
         var objReserve = repo.GetReserveById(id_reserve);
         var objVehicle = repo.GetVehicleById(objReserve.getVehicleId());
+
         var valueFinal = paymentService.processPayment(
                 objVehicle.getVehicleGrade(),
                 objReserve.getEstimatedFinalDate(),
-                objReserve.getActualReturnDate(),
+                CurrentDate,
                 objReserve.getBeginDate()
         );
 

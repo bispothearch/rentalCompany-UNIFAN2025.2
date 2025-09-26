@@ -30,12 +30,10 @@ class RentalUseCaseTest {
         var newReserve = new Reserve(clientId, vehicleId, PayMethod.PIX, 1000.00, LocalDate.now(), LocalDate.now().plusDays(8));
         var reserveId = useCase.RegisterReserve(newReserve);
 
+        useCase.ManageRental(reserveId, PaymentService.Pix, LocalDate.now());
+
         var SelectedReserve = useCase.GetReserveById(reserveId);
-
-        System.out.println("Obj: " + SelectedReserve);
-
-
-        var err = useCase.ManageRental(reserveId, PaymentService.Pix);
+        System.out.println("Valor final a ser pago: " + SelectedReserve.getValue());
 
 //        assertEquals(1, company.clientList.size());
 //        assertEquals("João", company.clientList.get(0).getName());
