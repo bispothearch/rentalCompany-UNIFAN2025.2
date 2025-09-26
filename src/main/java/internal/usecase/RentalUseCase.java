@@ -6,7 +6,6 @@ import internal.entities.Client;
 import internal.entities.Reserve;
 import internal.entities.Vehicle;
 import internal.enums.PaymentService;
-import internal.enums.ReserveStatus;
 import internal.ports.IDataBase;
 
 public class RentalUseCase {
@@ -38,7 +37,7 @@ public class RentalUseCase {
         return repo.GetListVehicle();
     }
 
-    public List<Reserve> LisReserve() {
+    public List<Reserve> ListReserve() {
         return repo.GetListReserve();
     }
 

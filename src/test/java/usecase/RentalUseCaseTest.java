@@ -8,7 +8,8 @@ import external.repository.InMemoryDataBase;
 import internal.enums.VehicleGrade;
 import internal.usecase.RentalUseCase;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
+
+import java.time.LocalDate;
 
 class RentalUseCaseTest {
 
@@ -26,18 +27,18 @@ class RentalUseCaseTest {
         var objVehicle = new Vehicle("Fiat", "Strada", "LK0I9-91", VehicleGrade.PICKUP, 0);
         useCase.RegisterVehicle(objVehicle);
 
-        var newReserve = new Reserve(objClient, objVehicle, PayMethod.PIX, 1000.00, null, null);
+        var newReserve = new Reserve(objClient, objVehicle, PayMethod.PIX, 1000.00, LocalDate.now(), LocalDate.now().plusDays(8));
         useCase.RegisterReserve(newReserve);
 
         var listOfClient = useCase.LisClient();
         var listOfVehicle = useCase.ListVehicle();
-        var listOfReserve = useCase.LisReserve();
+        var SelectedReserve = useCase.GetReserveById(0);
 
-        System.out.println("x: "+listOfClient.get(0).getName());
+        System.out.println("Obj: "+SelectedReserve);
 
 
         var ObjReserver = useCase.GetReserveById(1);
-        var err = useCase.ManageRental(ObjReserver, PaymentService.Pix);
+//        var err = useCase.ManageRental(ObjReserver, PaymentService.Pix);
 
 //        assertEquals(1, company.clientList.size());
 //        assertEquals("João", company.clientList.get(0).getName());

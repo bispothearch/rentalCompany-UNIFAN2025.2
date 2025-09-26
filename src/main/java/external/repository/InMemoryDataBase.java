@@ -35,7 +35,9 @@ public class InMemoryDataBase implements IDataBase {
 
     @Override
     public int RegisterReserve(Reserve newReserve) {
-        return 0;
+        newReserve.ID = cID_reserve++;
+        rentalCompany.reserveList.add(newReserve);
+        return newReserve.getID();
     }
 
     // -- Read All
