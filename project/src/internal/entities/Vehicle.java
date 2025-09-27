@@ -1,29 +1,61 @@
 package internal.entities;
 
-public class Vehicle {
-   public final int ID;
-   public String Brand;
-   public String Model;
-   public String LicencePlate;
-   public int Km;
-   public VehicleStatus Status;
+import internal.enums.VehicleGrade;
+import internal.enums.VehicleStatus;
 
-   public Vehicle(int ID, String Brand, String Model, String LicencePlate, int Km) {
-      this.ID = ID;
-      this.Brand = Brand;
-      this.Model = Model;
-      this.LicencePlate = LicencePlate;
-      this.Km = Km;
-      this.Status = VehicleStatus.Disponivel;
+public abstract class Vehicle {
+   private final int id;
+   private final String brand;
+   private final String model;
+   private final String licencePlate;
+   private int km;
+   private VehicleStatus status;
+
+   private final VehicleGrade vehicleGrade;
+
+   public Vehicle(int id, String brand, String model, String licencePlate, int km, VehicleGrade vehicleGrade) {
+       this.id = id;
+       this.brand = brand;
+       this.model = model;
+       this.licencePlate = licencePlate;
+       this.km = km;
+       this.status = VehicleStatus.AVAILABLE;
+       this.vehicleGrade = vehicleGrade;
    }
 
-   public void SwitchVehicleStatus(VehicleStatus newStatus){
-       this.Status = newStatus;
+   public void switchVehicleStatus(VehicleStatus newStatus){
+      this.status = newStatus;
    }
 
-   public enum VehicleStatus {
-      Disponivel,
-      Alugado,
-      Manutencao,
+   public int getID() {
+      return id;
+   }
+
+   public String getBrand() {
+      return brand;
+   }
+
+   public String getModel() {
+      return model;
+   }
+
+   public String getLicencePlate() {
+      return licencePlate;
+   }
+
+   public int getKm() {
+      return km;
+   }
+
+   public VehicleStatus getStatus() {
+      return status;
+   }
+
+   public void setStatus(VehicleStatus status) {
+            this.status = status;
+   }
+
+   public VehicleGrade getVehicleGrade() {
+      return vehicleGrade;
    }
 }

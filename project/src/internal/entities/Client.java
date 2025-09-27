@@ -1,21 +1,66 @@
 package internal.entities;
 
-public class Client {
-   public final int ID;
-   public String Name;
-   public int Age;
-   public final String CPF;
-   public String CNH;
-   public String Tel;
-   public String Email;
+import java.util.ArrayList;
+import java.util.List;
 
-   public Client(int ID, String Name, int Age, String CPF, String CNH, String Tel, String Email) {
+public class Client {
+   private final int ID;
+   private String Name;
+   private int Age;
+   private final String CPF;
+   private final String CNH;
+   private String Tel;
+   private String Email;
+
+   public Client(int ID, String name, int age, String CPF, String CNH, String tel, String email) {
       this.ID = ID;
-      this.Name = Name;
-      this.Age = Age;
+      Name = name;
+      Age = age;
       this.CPF = CPF;
       this.CNH = CNH;
-      this.Tel = Tel;
-      this.Email = Email;
+      Tel = tel;
+      Email = email;
+   }
+
+   private List<Reserve> clientReserveList = new ArrayList<>();
+
+   public int getID() {
+      return ID;
+   }
+
+   public String getName() {
+      return Name;
+   }
+
+   public int getAge() {
+      return Age;
+   }
+
+   public String getCPF() {
+      return CPF;
+   }
+
+   public String getCNH() {
+      return CNH;
+   }
+
+   public String getTel() {
+      return Tel;
+   }
+
+   public String getEmail() {
+      return Email;
+   }
+
+   public void setTel(String tel) {
+      Tel = tel;
+   }
+
+   public void setEmail(String email) {
+      Email = email;
+   }
+
+   public List<Reserve> getClientReserveList() {
+      return clientReserveList;
    }
 }
